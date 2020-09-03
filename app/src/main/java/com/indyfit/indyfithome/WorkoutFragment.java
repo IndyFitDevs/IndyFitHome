@@ -61,12 +61,16 @@ public class WorkoutFragment extends Fragment {
             public void onClick(View view) {
                 workout_search_param = searchBar.getText().toString().trim();
                 Toast.makeText(getActivity(),workout_search_param,Toast.LENGTH_SHORT).show();
-
-
+                searchDatabase(workout_search_param);
             }// end onClick
         });
 
         return RootView;
+    }
+
+    private void searchDatabase(String param) {
+        String query = param;
+
 
 
     }
