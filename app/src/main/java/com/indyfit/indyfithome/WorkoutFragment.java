@@ -1,9 +1,9 @@
 package com.indyfit.indyfithome;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -63,7 +63,7 @@ public class WorkoutFragment extends Fragment {
             public void onClick(View view) {
                 workout_search_param = searchBar.getText().toString().trim();
                 Toast.makeText(getActivity(),workout_search_param,Toast.LENGTH_SHORT).show();
-
+                searchDatabase(workout_search_param);
             }// end onClick
         });
 
@@ -72,6 +72,14 @@ public class WorkoutFragment extends Fragment {
 
     private void searchDatabase(String param) {
         String query = param;
+        if (query==null) query="abs";
+        Bundle bundle = new Bundle();
+        bundle.putString("search", query);
+        WorkoutMenuFragment workoutMenuFragment = new WorkoutMenuFragment();
+        workoutMenuFragment.setArguments(bundle);
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.mainActivity, workoutMenuFragment);
+        transaction.commit();
     }
 
 
