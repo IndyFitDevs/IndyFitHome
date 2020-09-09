@@ -75,6 +75,7 @@ public class WorkoutFragment extends Fragment {
         if (query==null) query="abs";
         Bundle bundle = new Bundle();
         bundle.putString("search", query);
+        bundle.putInt("menu", 2);
         WorkoutMenuFragment workoutMenuFragment = new WorkoutMenuFragment();
         workoutMenuFragment.setArguments(bundle);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();

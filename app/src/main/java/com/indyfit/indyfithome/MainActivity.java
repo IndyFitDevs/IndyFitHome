@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         WorkoutFragment workoutFragment = new WorkoutFragment();
         FragmentManager manager = getSupportFragmentManager();
-
         getSupportFragmentManager().beginTransaction().add(R.id.mainActivity,workoutFragment).commit();
 
     }
